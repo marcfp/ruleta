@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Guany Ruleta</title>
+  <style>
+  label {display:block;}
+  input {width:90%;margin-left:25px;}
+  h1{text-transform: uppercase;}
+  #taula { position:relative; left:30%;}
+  #centra { text-align: center;}
+  </style>
+  <script>
+     function checkInputIsNumber(){
+        //var value=document.forms["checkingInput"]["txtValue"].value;
+        var value=document.Form.preguntesTotals.value;
+        //alert("tiradesTotals ="+value);
+
+        var guanya=document.Form.tanper100guanya.value;
+        var perd=document.Form.tanper100perd.value;
+
+        //alert("guanya ="+guanya);
+        //alert("perd ="+perd);
+       if(parseInt(guanya)+parseInt(perd)!=100){
+         alert("Els % de guanyar i/o perdre són erronis, NO sumen el 100%");
+         return false;
+       }
+
+        if (isNaN(value)){
+           alert("Please Provide the input as a number");
+           return false;
+        }
+        return true;
+     }
+     /*function validaGuanya(){
+        var guanya=document.Form.tanper100guanya.value;
+        var perd=document.Form.tanper100perd.value;
+        if(guanya!=100-perd){
+          document.Form.tanper100guanya.value=100-perd;
+          alert("document.Form.tanper100guanya.value = "+document.Form.tanper100guanya.value);
+        }
+        else{
+          alert("document.Form.tanper100guanya.value = "+document.Form.tanper100guanya.value);
+        }
+     }
+     function validaPerd(){
+       var guanya=document.Form.tanper100guanya.value;
+       var perd=document.Form.tanper100perd.value;
+       if(perd!=100-guanya){
+         document.Form.tanper100perd.value=100-guanya;
+         alert("document.Form.tanper100perd.value = "+document.Form.tanper100perd.value);
+       }
+       else{
+        alert("document.Form.tanper100perd.value = "+document.Form.tanper100perd.value);
+       }
+     }*/
+  </script>
+</head>
+<body id="centra">
+  <h1 >Configura la ruleta :</h1>
+  <form action="jugador.php" onsubmit="return checkInputIsNumber()" method="POST" id="form" name="Form">
+    <table id="taula" >
+      <tr>
+        <td><label >Import total a donar amb premis a la ruleta:</label></td><td><input type="text" name="importTotal" id="" value="1000"></td>
+      </tr>
+    <tr>
+      <td><label >Número de preguntes Totals que es podran fer a la ruleta:</label></td><td><input type="text" name="preguntesTotals" id="" value="10"></td>
+    </tr>
+    <tr>
+      <td><label >% de tirades que tindran algun tipus premi :</label></td><td><input type="text" name="tanper100guanya" id="" value="70" ></td>
+    </tr>
+    <tr>
+      <td><label>% de tirades que no tindran premi :</label></td><td><input type="text" name="tanper100perd" id="" value="30"></td>
+    </tr>
+    <tr>
+      <td><label>Premis de 500€ :</label></td><td><input type="text" name="premi500" id="" value="1"></td>
+    </tr>
+    <tr>
+      <td><label>Premis de 50€ :</label></td><td><input type="text" name="premi50" id="" value="10"></td>
+    </tr>
+    <tr>
+      <td><label>Premis de 20€ :</label></td><td><input type="text" name="premi20" id="" value="20"></td>
+    </tr>
+    <tr>
+      <td><label>Premis de 10€ :</label></td><td><input type="text" name="premi10" id="" value="40"></td>
+    </tr>
+    <tr>
+      <td><label>Premis de 5€ :</label></td><td><input type="text" name="premi5" id="" value="100"></td>
+    </tr>
+    <tr>
+      <td><label>Premis de 1€ :</label></td><td><input type="text" name="premi1" id="" value="1000"></td>
+    </tr>
+    <tr>
+      <td><label>Poder tornar a tirar  :</label></td><td><input type="text" name="premit" id="" value="1000"></td>
+    </tr>
+    <tr>
+      <td><label>Sense premi  :</label></td><td><input type="text" name="premi0" id="" value="1000"></td>
+    </tr>
+    <tr>
+      <td colspan="2">    <input type="submit"  class="envia"   value="Envia balanç aposta" ></td>
+    </tr>
+  </form>
+</body>
+</html>
